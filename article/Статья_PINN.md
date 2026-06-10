@@ -126,7 +126,7 @@ $$L_{\text{physics}} = \frac{1}{N_{\text{coll}}}\sum_{j=1}^{N_{\text{coll}}}\!\l
 
 ![Рисунок 3 — Фазовый портрет (зависимость i(t) от q(t)) для Анзаца №3](/figures/fig3.png)
 
-***Рисунок 3*** *— Фазовый портрет (зависимость $i(t)$ от $q(t)$) для Анзаца №3*
+***Рисунок 3*** *— Фазовый портрет (зависимость i(t) от q(t)) для Анзаца №3*
 
 График абсолютной ошибки (рис. 4) подтверждает высокую локальную точность: в зоне обучения погрешность не превышает $0{,}01$, в зоне экстраполяции достигает максимума $0{,}088$ на краю интервала — этот скачок обусловлен микросдвигом фазы и укладывается в инженерные допуски обратных задач. Распределение остатка ДУ во времени (рис. 5) равномерно колеблется около нулевой отметки на всём промежутке, без выраженных пиков на границе $t = 6{,}0$ с, что подтверждает одинаково эффективное удовлетворение физическому закону как в присутствии данных, так и в режиме чистого прогноза.
 
@@ -144,7 +144,7 @@ $$L_{\text{physics}} = \frac{1}{N_{\text{coll}}}\sum_{j=1}^{N_{\text{coll}}}\!\l
 
 ![Рисунок 6 — Динамика заряда q(t) для трёх анзацев](/figures/fig6.png)
 
-***Рисунок 6*** *— Динамика заряда $q(t)$ для трёх анзацев*
+***Рисунок 6*** *— Динамика заряда q(t) для трёх анзацев*
 
 Сравнительный фазовый портрет трёх архитектур (рис. 7) наглядно подтверждает вырождение Анзаца №1 и полную потерю физической адекватности траектории Анзаца №2, тогда как параметрическая модель точно воспроизводит канонический диссипативный аттрактор.
 
@@ -169,9 +169,11 @@ $$L_{\text{physics}} = \frac{1}{N_{\text{coll}}}\sum_{j=1}^{N_{\text{coll}}}\!\l
 Реализованы и верифицированы методы физико-информированного машинного обучения для моделирования переходных процессов в RLC-контуре. Эксперимент выявил критические уязвимости стандартных подходов: экспоненциальный фильтр без частотного базиса (Анзац №2) приводит к потере фазы и росту ошибки более 88 % в зоне экстраполяции, тогда как избыточная аналитическая детерминация (Анзац №1) вызывает тривиальное вырождение весов.
 
 Наиболее устойчивым решением оказалась предложенная параметрическая архитектура с разделением выходов сети на динамическую амплитуду и фазу (Анзац №3), обеспечившая $\mathrm{RMSE} = 0{,}0397$ и удержание невязки уравнения Кирхгофа в околонулевом коридоре. В режиме чистой экстраполяции максимальная абсолютная погрешность ограничена уровнем $0{,}088$, энергетическая структура диссипативного процесса на фазовом портрете воспроизведена в виде канонического скручивающегося аттрактора. Предложенная модификация PINN подавляет градиентные аномалии оптимизатора L-BFGS и гарантирует устойчивость численного прогнозирования, открывая перспективы сквозного моделирования радиотехнических систем в условиях разреженных и зашумлённых данных.
+Исходный код проекта доступен по ссылке: https://github.com/mazy99/pinn-rlc-circuit
 
 ## Список литературы
 
-1. Raissi M., Perdikaris P., Karniadakis G. E. Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations // Journal of Computational Physics. — 2019. — Vol. 378. — P. 686–707.
-2. Lagaris I. E., Likas A., Fotiadis D. I. Artificial neural networks for solving ordinary and partial differential equations // IEEE Transactions on Neural Networks. — 1998. — Vol. 9, № 5. — P. 987–1000.
-3. Liu D. C., Nocedal J. On the limited memory BFGS method for large scale optimization // Mathematical Programming. — 1989. — Vol. 45, № 1–3. — P. 503–528.
+1.	Raissi, M. Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations / M. Raissi, P. Perdikaris, G. E. Karniadakis // Journal of Computational Physics. — 2019. — Vol. 378. — P. 686–707.
+2.	Lagaris, I. E. Artificial neural networks for solving ordinary and partial differential equations / I. E. Lagaris, A. Likas, D. I. Fotiadis // IEEE Transactions on Neural Networks. — 1998. — Vol. 9, № 5. — P. 987–1000.
+3.	Liu, D. C. On the limited memory BFGS method for large scale optimization / D. C. Liu, J. Nocedal // Mathematical Programming. — 1989. — Vol. 45, № 1–3. — P. 503–528.
+4.	Sitzmann, V. Implicit Neural Representations with Periodic Activation Functions / V. Sitzmann, J. Martel, A. Bergman, D. Lindell, G. Wetzstein // Advances in Neural Information Processing Systems (NeurIPS 2020). — 2020. — Vol. 33. — P. 7493–7505.
